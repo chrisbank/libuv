@@ -339,9 +339,8 @@ static void uv__fsevents_reschedule(uv_fs_event_t* handle) {
       curr = ngx_queue_data(q, uv_fs_event_t, cf_member);
 
       assert(curr->realpath != NULL);
-      paths[i] = CFStringCreateWithCString(NULL,
-                                           curr->realpath,
-                                           CFStringGetSystemEncoding());
+      paths[i] = CFStringCreateWithFileSystemRepresentation(NULL,
+                                            curr->realpath);
       if (paths[i] == NULL)
         abort();
     }
