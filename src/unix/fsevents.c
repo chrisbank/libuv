@@ -340,7 +340,7 @@ static void uv__fsevents_reschedule(uv_fs_event_t* handle) {
 
       assert(curr->realpath != NULL);
       paths[i] = CFStringCreateWithFileSystemRepresentation(NULL,
-                                            curr->realpath);
+                                                            curr->realpath);
       if (paths[i] == NULL)
         abort();
     }
